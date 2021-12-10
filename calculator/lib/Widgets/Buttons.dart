@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class Calculator_Buttons extends StatelessWidget {
   final String text;
-  // final int fillColor;
-  // final int textColor;
-  // final double textSize;
-  // final Function callback;
+  final int fillColor;
+  final int textColor;
+  final double textSize;
+  final Function callback;
 
-  const Calculator_Buttons({
+ const Calculator_Buttons({
     required this.text,
-    // required this.fillColor,
-    // required this.textColor,
-    // required this.textSize,
-    // required this.callback,
+    required this.fillColor,
+    required this.textColor,
+    required this.textSize,
+    required this.callback,
   });
 
   @override
@@ -24,17 +24,20 @@ class Calculator_Buttons extends StatelessWidget {
         height: 70,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              primary: Colors.orangeAccent,
+              primary: Color(fillColor),
               shadowColor: Colors.black,
               elevation: 10),
           child: Text(
             text,
              style: TextStyle(
-               fontSize: 20,
+               color: Color(textColor),
+               fontSize: textSize,
                fontWeight: FontWeight.bold,
              ),
           ),
-          onPressed: () => {},
+          onPressed: () => callback(text),
+          // color: Colors(fillColor),
+          //   TextColor: Colors(textColor),
       ),
     ),
     );
